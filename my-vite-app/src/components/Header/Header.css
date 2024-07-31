@@ -1,0 +1,99 @@
+#header{
+   display: flex;
+   justify-content: space-between;
+   position: sticky;
+   top: 0;
+   background-color: #fff;
+   align-items: center;
+   left: 0;
+   z-index: 9999;
+   overflow: hidden;
+}
+.logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.logo-img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+.logo-title{
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 0 20px;
+    transition: all .15s ease;
+}
+#navbar li{
+    list-style: none;
+    padding: 0 30px 0 0;
+    color: #040924;
+    font-weight: 200;
+    font-size: 17px;
+    transition: .3s;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+}
+#navbar li a{
+    text-decoration: none;
+    color: #040924;
+}
+#navbar li.register button{
+    border: 2px solid #2dc3d0;
+    transition: all .15s ease;
+}
+#navbar li.register button:hover{
+    border: 2px solid #000;
+}
+
+#navbar li.logIn{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#navbar li:hover{
+    font-weight: 1000;
+}
+#navbar li.active:hover::after{
+    content: "";
+    position: absolute;
+    width: 40%;
+    bottom: -2px;
+    height: 2px;
+    left: 0;
+    background-color: #000;
+}
+#navbar li button{
+    padding: 5px 10px;
+    background-color: #2dc3d0;
+    border: 0;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 20px
+}
+#header .language-set{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px;
+    border: 1px solid #000;
+}
+#header .language-set select{
+    cursor: pointer;
+    outline: none;
+    border: none;
+}

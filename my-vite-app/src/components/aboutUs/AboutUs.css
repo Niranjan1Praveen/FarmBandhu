@@ -1,0 +1,50 @@
+
+#about-us-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #f8f8f8;;
+    justify-content: space-between;
+    line-height: 30px;
+}
+.welcome-title{
+    padding-top: 50px;
+}
+#about-us-container .group{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 0;
+}
+#about-us-container .group .content{
+    line-height: 2rem;
+    margin-top: 10px;
+}
+#about-us-container h1{
+    font-weight: 600;
+    color: #44474c;
+    margin: 10px 0;
+    line-height: 1.5;
+    padding-bottom: 10px;
+    position: relative;
+}
+#about-us-container .group ol li span{
+    font-weight: 1000;
+    color: #000;
+}
+#about-us-container .group ol li{
+    font-weight: 400;
+    color: #6f7375;
+}
+#about-us-container .group ol{
+    padding-left: 20px;
+}
+/* ContactUs Component */
+.group .social-links li{
+    list-style: none;
+}
+.group .social-links li a{
+    text-decoration: none;
+    color: #2547e0;
+    font-weight: 400;
+}

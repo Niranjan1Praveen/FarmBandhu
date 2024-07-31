@@ -1,0 +1,32 @@
+.homeCharts-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+    margin: 25px 0;
+}
+
+.homeCharts-container .charts-box {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 520px;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.homeCharts-container .charts-box canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+@media (max-width: 768px) {
+    .homeCharts-container {
+        grid-template-columns: 1fr;
+    }
+
+    .homeCharts-container .charts-box {
+        width: 100%;
+    }
+}

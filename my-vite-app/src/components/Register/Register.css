@@ -1,0 +1,29 @@
+#register-container{
+    background-color: #040924;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#login-form{
+    position: relative;
+}
+#login-form input{
+    margin: 0 0 15px 0;
+
+}
+#login-form .terms-text{
+    font-size: small;
+    
+}
+#login-form .register-logo{
+    width: 125px;
+    height: 100px;
+    position: absolute;
+    right: 10px;
+}
+#login-form .signIn-btn{
+    text-align: center;
+    margin: 20px auto;
+}

@@ -1,0 +1,28 @@
+.analytical-charts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin: 25px 0;
+    gap: 15px;
+}
+  
+.analytical-charts-container .charts-box {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 800px;
+    margin: 20px 0;
+    width: 100%;
+}
+.analytical-note-text{
+    font-size: small;
+    color: rgb(3, 99, 209);
+}
+@media (max-width: 768px) {
+    .charts-box {
+        width: 90%;
+        }
+}
+    

@@ -1,0 +1,89 @@
+#contact-form{
+    display: flex;
+    margin: 30px;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#contact-form #form{
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+#contact-form #form span{
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #222;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+#contact-form h2{
+    font-size: 36px;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+#contact-form #form input, #contact-form #form textarea{
+    width: 100%;
+    padding: 12px 15px;
+    resize: none;
+    outline: none;
+    margin-bottom: 20px;
+    border: 1px solid #040924;
+    border-radius: 4px;
+}
+#form button{
+    background-color: #2dc3d0;
+    border: 2px solid #2dc3d0;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #040924;
+    font-weight: 500;
+    min-width: 170px;
+    padding: 16px 15px;
+    transition: all .2s ease;
+}
+#form button:hover{
+    background-color: transparent;
+}
+
+#members{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.people{
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 25px;
+}
+.people img{
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.people p{
+    margin: 0;
+    font-size: 14px;
+    line-height: 20px;
+}
+.people span{
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #222;
+}
+.details li p{
+    margin: 0;
+    font-size: 14px;
+    padding-left: 10px;
+}
+.details li{
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
