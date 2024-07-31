@@ -1,13 +1,13 @@
-Overview
+<h2>Overview</h2>
 Farm Bandhu is a comprehensive web platform designed to empower farmers in India with actionable insights to optimize their agricultural practices. Leveraging data analytics, this platform provides tailored recommendations on crop choices, pricing strategies, and land size comparisons by incorporating regional factors specific to various states in India. The platform is developed using a combination of Python, HTML, CSS, and JavaScript, offering a user-friendly interface that enables farmers to make informed decisions based on data-driven insights.
 
-Key Features
+<h2>Key Features</h2>
 Regional Customization: Tailors recommendations based on regional factors such as soil types, weather patterns, and market conditions specific to different states in India.
 Data-Driven Insights: Analyzes historical data on crop growth rates, land sizes, and market prices to provide actionable recommendations.
 Market Intelligence: Offers insights into competitive market prices and trends to help farmers maximize their profitability.
 User-Friendly Interface: Allows farmers to input their data and receive personalized suggestions through an intuitive web platform.
 
-Technology Stack
+<h2>Technology Stack</h2>
 Backend: Python (Flask/Django)
 Handles backend logic, processes user input, and provides responses.
 Frontend: React (JSX), HTML, CSS, JavaScript
@@ -30,5 +30,5 @@ Render the output on the webpage.
 
 Steps to run the application locally on your network
 --> Open any terminal, write 
-    cd my-vite-app
+    cd my-vite-app &&
     npm run dev
