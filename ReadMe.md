@@ -28,7 +28,4 @@ Display the Output:
 Update the React component's state with the response from the backend.
 Render the output on the webpage.
 
-Steps to run the application locally on your network
---> Open any terminal, write 
-    cd my-vite-app &&
-    npm run dev
+To run the Vite app, first clone the repository with `git clone https://github.com/Niranjan1Praveen/FarmBandhu.git` and navigate to the project directory using `cd FarmBandhu`. Install dependencies with `npm install` (or `yarn install`), then start the development server with `npm run dev` (or `yarn dev`). For a production build, use `npm run build` (or `yarn build`).
