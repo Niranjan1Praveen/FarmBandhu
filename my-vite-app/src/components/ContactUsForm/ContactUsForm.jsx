@@ -1,36 +1,46 @@
-import React from "react"
-import "./ContactUsForm.css"
-import Vaibhav from '../../assets/images/users/vaibhav.jpeg'
-import Niranjan from '../../assets/images/users/niranjan.jpeg'
-import Debshata from '../../assets/images/users/debshata.jpeg'
-export default function ContactUsForm(){
-    return(
+import React from "react";
+import "./ContactUsForm.css";
+import Vaibhav from '../../assets/images/users/vaibhav.jpeg';
+import Niranjan from '../../assets/images/users/niranjan.jpeg';
+import Debshata from '../../assets/images/users/debshata.jpeg';
+import Abhishek from '../../assets/images/users/abhishek.jpeg';
+
+import { useTranslation } from "react-i18next";
+
+export default function ContactUsForm() {
+    const { t } = useTranslation('contactUs');
+
+    return (
         <section id="contact-form" className="section-p">
             <form action="" name="contact-form" id="form">
-                <span>Leave a message</span>
-                <h2>We love to hear from you!</h2>
-                <input type="text" name="name" id="name" placeholder="Your Name" required />
-                <input type="email" name="email" id = "email" placeholder="Your Email" required />
-                <input type="text" name="subject" id = "subject" placeholder="Your Subject" required />
-                <textarea name="message" id="area-msg" cols="30" rows="10" placeholder="Your Message" required></textarea>
-                <button type="submit">Submit</button>
+                <span>{t('form.leaveMessage')}</span>
+                <h2>{t('form.title')}</h2>
+                <input type="text" name="name" id="name" placeholder={t('form.fields.name')} required />
+                <input type="email" name="email" id="email" placeholder={t('form.fields.email')} required />
+                <input type="text" name="subject" id="subject" placeholder={t('form.fields.subject')} required />
+                <textarea name="message" id="area-msg" cols="30" rows="10" placeholder={t('form.fields.message')} required></textarea>
+                <button type="submit">{t('form.submitButton')}</button>
             </form>
             
             <div className="members">
-                <h2>Members of Farm Bandhu</h2>
+                <h2>{t('members.sectionTitle')}</h2>
                 <div className="people">
-                    <img src={Vaibhav} alt="vaibhav img"/>
-                    <p><span>Vaibhav Jain</span>Phone: +91 XXXXXXXXXX <br/> Email: abc@gmail.com</p>
+                    <img src={Vaibhav} alt="vaibhav img" />
+                    <p><span>{t('members.people.0.name')}</span>{t('members.people.0.phone')} <br/> {t('members.people.0.email')}</p>
                 </div>
                 <div className="people">
-                    <img src={Niranjan} alt="niranjan img"/>
-                    <p><span>Niranjan Praveen</span>Phone: +91 XXXXXXXXXX<br/> Email: abc@gmail.com</p>
+                    <img src={Niranjan} alt="niranjan img" />
+                    <p><span>{t('members.people.1.name')}</span>{t('members.people.1.phone')}<br/> {t('members.people.1.email')}</p>
                 </div>
                 <div className="people">
-                    <img src={Debshata} alt="debshata img"/>
-                    <p><span>Debshata Choudhury</span>Phone: +91 XXXXXXXXXX <br/> Email: abc@gmail.com</p>
+                    <img src={Debshata} alt="debshata img" />
+                    <p><span>{t('members.people.2.name')}</span>{t('members.people.2.phone')} <br/> {t('members.people.2.email')}</p>
+                </div>
+                <div className="people">
+                    <img src={Abhishek} alt="abhishek img" />
+                    <p><span>{t('members.people.3.name')}</span>{t('members.people.3.phone')} <br/> {t('members.people.3.email')}</p>
                 </div>
             </div>
-    </section>
-    )
+        </section>
+    );
 }

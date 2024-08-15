@@ -1,0 +1,24 @@
+{
+    "homeCharts": {
+        "historicalGrowthRates": {
+            "title": "फसल श्रेणियों की ऐतिहासिक वृद्धि दर",
+            "dataAvailable": "growthRates.length > 0",
+            "chartType": "Line"
+        },
+        "areaSharesOfCropCategories": {
+            "title": "फसल श्रेणियों के क्षेत्रीय हिस्से",
+            "dataAvailable": "priceRealisation.length > 0",
+            "chartType": "Pie"
+        },
+        "areaSharesToGCA": {
+            "title": "फसल श्रेणियों के क्षेत्रीय हिस्से जीसीए के लिए",
+            "dataAvailable": "areaShares.length > 0",
+            "chartType": "Bar"
+        },
+        "valueSharesOfCropCategories": {
+            "title": "फसल श्रेणियों के मूल्य हिस्से",
+            "dataAvailable": "valueShares.length > 0",
+            "chartType": "Line"
+        }
+    }
+}

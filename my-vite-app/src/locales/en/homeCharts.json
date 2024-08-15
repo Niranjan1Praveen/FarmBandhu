@@ -1,0 +1,25 @@
+{
+    "homeCharts": {
+      "historicalGrowthRates": {
+        "title": "Historical Growth Rates of Crop Categories",
+        "dataAvailable": "growthRates.length > 0",
+        "chartType": "Line"
+      },
+      "areaSharesOfCropCategories": {
+        "title": "Area Shares of Crop Categories",
+        "dataAvailable": "priceRealisation.length > 0",
+        "chartType": "Pie"
+      },
+      "areaSharesToGCA": {
+        "title": "Area Shares of Crop Categories to GCA",
+        "dataAvailable": "areaShares.length > 0",
+        "chartType": "Bar"
+      },
+      "valueSharesOfCropCategories": {
+        "title": "Value Shares of Crop Categories",
+        "dataAvailable": "valueShares.length > 0",
+        "chartType": "Line"
+      }
+    }
+  }
+  

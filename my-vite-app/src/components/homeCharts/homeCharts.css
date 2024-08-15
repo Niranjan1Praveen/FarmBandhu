@@ -4,8 +4,11 @@
     gap: 10px;
     width: 100%;
     margin: 25px 0;
+    overflow-x: scroll;
 }
-
+.homeCharts-container::-webkit-scrollbar{
+    display: none;
+}
 .homeCharts-container .charts-box {
     display: flex;
     align-items: flex-start;
@@ -18,15 +21,14 @@
 
 .homeCharts-container .charts-box canvas {
     width: 100% !important;
-    height: auto !important;
+    height: 90% !important;
 }
-
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .homeCharts-container {
         grid-template-columns: 1fr;
     }
 
     .homeCharts-container .charts-box {
-        width: 100%;
+        width: 170%;
     }
 }

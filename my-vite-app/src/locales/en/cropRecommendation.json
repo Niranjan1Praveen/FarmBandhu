@@ -1,0 +1,18 @@
+{
+    "cropRecommendation": {
+      "backLinkText": "Back to Home",
+      "title": "Crop Recommendation",
+      "placeholders": {
+        "nitrogen": "Percentage of Nitrogen",
+        "phosphorus": "Percentage of Phosphorus",
+        "potassium": "Percentage of Potassium",
+        "temperature": "Temperature in Degree Celsius",
+        "humidity": "Percentage of Humidity",
+        "ph": "pH of Soil",
+        "rainfall": "Percentage of Rainfall"
+      },
+      "buttonText": "Predict Crop",
+      "resultTitle": "Recommended Crop: {result}"
+    }
+  }
+  

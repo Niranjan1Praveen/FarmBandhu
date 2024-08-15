@@ -1,92 +1,116 @@
 import React from "react";
-import "./Login.css"
-import goBackTo from '../../assets/images/icons/less-than.svg'
-import google from '../../assets/images/icons/google.svg'
-import facebook from '../../assets/images/icons/facebook.svg'
+import "./Login.css";
+import goBackTo from '../../assets/images/icons/less-than.svg';
+import google from '../../assets/images/icons/google.svg';
+import facebook from '../../assets/images/icons/facebook.svg';
 import { useNavigate, Link } from "react-router-dom";
-export default function Login({setIsAuth}){
-    let navigate = useNavigate();
-    const [email, setEmail] = React.useState('')
-    const [password, setPassword] = React.useState('')
+import { useTranslation } from "react-i18next";
 
-    function signInWithGoogle(){
-        signInWithPopup(auth, provider).then((user)=>{
+export default function Login({ setIsAuth }) {
+    let navigate = useNavigate();
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const { t } = useTranslation('login');  
+    const [error, setError] = React.useState('');
+    const [success, setSuccess] = React.useState('');
+    function signInWithGoogle() {
+        signInWithPopup(auth, provider).then((user) => {
             localStorage.setItem("User signed in:", user.email);
             localStorage.setItem("isAuth", true);
-            setIsAuth(true)
-            navigate("/")
-        })
+            setIsAuth(true);
+            navigate("/");
+        });
     }
-    
+
     function signInWithEmailPassword(event) {
         event.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            localStorage.setItem("User signed in:", user.email);
-            localStorage.setItem("isAuth", true);
-            setIsAuth(true)
-            navigate("/")
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.error("Sign-in error:", errorMessage);
-        });
-        }
+            .then((userCredential) => {
+                const user = userCredential.user;
+                localStorage.setItem("User signed in:", user.email);
+                localStorage.setItem("isAuth", true);
+                setIsAuth(true);
+                navigate("/");
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.error("Sign-in error:", errorMessage);
+            });
+    }
 
-      function signInWithFacebook() {
-    
+    function signInWithFacebook() {
         signInWithPopup(auth, provider_fb)
-          .then((userCredential) => {
-            const user = userCredential.user;
-            localStorage.setItem("isAuth", true);
-            setIsAuth(true)
-            navigate("/")
-            console.log('Signed in with Facebook:', user);
-          })
-          .catch((error) => {
-            console.error('Error signing in with Facebook:', error);
-          });
-      }
-    return(
-        
-        <section id="login-container">
-            <form action="" id="login-form" onSubmit={signInWithEmailPassword}>
+            .then((userCredential) => {
+                const user = userCredential.user;
+                localStorage.setItem("isAuth", true);
+                setIsAuth(true);
+                navigate("/");
+                console.log('Signed in with Facebook:', user);
+            })
+            .catch((error) => {
+                console.error('Error signing in with Facebook:', error);
+            });
+    }
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const userData = JSON.parse(localStorage.getItem('UserRegisterData'));
+        if (email === userData.email && password === userData.password) {
+            localStorage.setItem('isAuth', true);
+            setIsAuth(true);
+            setSuccess('Login successful!');
+            navigate('/');
+        } else {
+            setError('Invalid email or password.');
+            console.log(error);
+        }
+    };
+    return (
+        <section id="login-container" className="section-p">
+            <form id="login-form" onSubmit={signInWithEmailPassword}>
                 <Link to="/" className="go-back-to">
-                    <img src={goBackTo} alt="" className="icon"/>
-                    go back to home page
+                    <img src={goBackTo} alt="" className="icon" />
+                    {t('loginContainer.links.0')}  
                 </Link>
+                <p>{t('loginContainer.paragraph')}</p>  
 
-                <p>Login to your Farm Bandhu account</p>
-
-                <input type="email" id="email" placeholder="Email Address" required value={email} onChange={(e)=>setEmail(e.target.value)}/>
-                <input type="password" placeholder="Password" id="psswd" required value={password} onChange={(e)=>setPassword(e.target.value)}/>
-                <a href="" id="forget-pswd">Forgot your password?</a>
-                <button className="logIn-btn" type="submit">Log In</button>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder={t('loginContainer.emailPlaceholder')}
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <input
+                    type="password"
+                    placeholder={t('loginContainer.passwordPlaceholder')}  
+                    id="psswd"
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <small className="error">{error}</small>
+                <a href="" id="forget-pswd">{t('loginContainer.forgetPasswordLink')}</a>  
+                <button className="logIn-btn" onClick={handleLogin}>{t('loginContainer.submitButton')}</button>  
 
                 <div className="provider-sign-in-container">
-
                     <div className="wrap">
                         <div className="line-1"></div>
-                            <small>or</small>
+                        <small>{t('loginContainer.providerSignInContainer.wrap.small')}</small>  
                         <div className="line-2"></div>
                     </div>
 
-                    <button className="provider-btn" onClick={signInWithGoogle} type='button'>
+                    <button className="provider-btn" onClick={signInWithGoogle} type='button' disabled>
                         <img src={google} alt="google logo" />
-                        Log in with Google
+                        {t('loginContainer.providerSignInContainer.providerButtons.0')}  
                     </button>
-                    <button className="provider-btn" onClick={signInWithFacebook} type='button'>
-                        <img src={facebook} alt="facebooklogo" />
-                        Log in with Facebook
+                    <button className="provider-btn" onClick={signInWithFacebook} type='button' disabled>
+                        <img src={facebook} alt="facebook logo" />
+                        {t('loginContainer.providerSignInContainer.providerButtons.1')}  
                     </button>
-
                 </div>
-                
-    
             </form>
-           
         </section>
-    )
+    );
 }

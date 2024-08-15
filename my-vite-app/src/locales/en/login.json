@@ -1,0 +1,22 @@
+{
+    "loginContainer": {
+      "links": [
+        "go back to home page"
+      ],
+      "paragraph": "Login to your Farm Bandhu account",
+      "forgetPasswordLink": "Forgot your password?",
+      "submitButton": "Log In",
+      "emailPlaceholder": "Enter your email",
+      "passwordPlaceholder": "Enter your password",
+      "providerSignInContainer": {
+        "wrap": {
+          "small": "or"
+        },
+        "providerButtons": [
+          "Log in with Google",
+          "Log in with Facebook"
+        ]
+      }
+    }
+  }
+  

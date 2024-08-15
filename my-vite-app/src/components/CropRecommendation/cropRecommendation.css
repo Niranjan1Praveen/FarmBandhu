@@ -1,0 +1,26 @@
+.crop-recomm{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.crop-recomm input{
+    padding: 10px;
+}
+.crop-recomm .title{
+    word-break:break-all;
+}
+.crop-recomm-btn{
+    background-color: rgb(3, 99, 209);
+    height: 38px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    margin: auto;
+    font-size: 1.2rem;
+    outline: none;
+    border-radius: 4px;
+}
+.crop-recomm .result{
+    text-align: center;
+}

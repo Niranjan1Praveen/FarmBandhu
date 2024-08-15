@@ -1,0 +1,49 @@
+{
+    "section": {
+        "fePost-root": {
+            "title": "Important Data for Farmers",
+            "authorDetails": {
+                "imgSrc": "pollChart",
+                "authorLink": "Featured Poll",
+                "date": "Tue, Jun 27, 2024"
+            },
+            "pollsSection": {
+                "poll1": {
+                    "title": "What Feature Do You Find Most Valuable in Farm Bandhu?",
+                    "options": [
+                        "Price Comparison Tool: Compare crop prices from various sources to get the best rates.",
+                        "Market Insights: Understand land distribution and the competitive landscape.",
+                        "Historical Performance Analysis: Track and analyze crop performance over the years.",
+                        "User-Friendly Interface: Access data easily with our intuitive platform."
+                    ],
+                    "totalVotes": "24",
+                    "daysLeft": "5 days left",
+                    "voteButtonText": "Vote now"
+                },
+                "poll2": {
+                    "title": "How Has Farm Bandhu Helped You in Your Farming Decisions?",
+                    "options": [
+                        "Improved Profit Margins: By selling crops at the best possible prices.",
+                        "Better Market Understanding: Through insights into land distribution and competition.",
+                        "Informed Crop Planning: Using historical performance data to plan future cycles.",
+                        "Enhanced Overall Productivity: By utilizing advanced data analytics and predictions."
+                    ],
+                    "totalVotes": "24",
+                    "daysLeft": "5 days left",
+                    "voteButtonText": "Vote now"
+                }
+            },
+            "postContent": {
+                "title": "Farm Bandhu: Empowering Farmers, Transforming Agriculture",
+                "content": [
+                    "Empowering Farmers Across India: From small farms to large fields, Farm Bandhu is here to support every farmer's journey.",
+                    "Life on a farm is a school of patience. You can't hurry crops or make an ox in a day or two. -Henri Alain",
+                    "Welcome to FarmBandhu, your go-to platform for region-specific insights and data-driven farming solutions.",
+                    "Explore detailed local market trends, crop performance, and land utilization analyses.",
+                    "Empower your farming decisions and maximize profitability with FarmBandhu's tailored data insights."
+                ],
+                "illustrationsTitle": "Some Important Illustrations for you!"
+            }
+        }
+    }
+}

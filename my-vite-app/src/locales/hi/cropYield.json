@@ -1,0 +1,21 @@
+{
+    "form": {
+      "step1": {
+        "backLinkText": "मुख्य पृष्ठ पर वापस जाएं"
+      },
+      "yieldPrediction": {
+        "title": "उपज पूर्वानुमान",
+        "fields": {
+          "crop": "फसल:",
+          "rainfall": "औसत वर्षा (मिमी/वर्ष):",
+          "pesticides": "कीटनाशक (टन):",
+          "temperature": "औसत तापमान (°C):"
+        },
+        "buttonText": "पूर्वानुमान करें",
+        "result": {
+          "title": "अनुमानित उपज:"
+        }
+      }
+    }
+  }
+  

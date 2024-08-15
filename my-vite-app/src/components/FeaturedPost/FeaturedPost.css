@@ -110,7 +110,7 @@
 .fePost-content h3{
     color: #000000;
     font-size: 30px;
-    bottom: 0;
+    padding-top: 20px;
 }
 /* Author Details */
 .authorDetails{

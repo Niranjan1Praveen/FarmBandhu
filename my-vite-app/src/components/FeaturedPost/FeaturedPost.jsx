@@ -1,18 +1,24 @@
-import React from "react"
-import "./FeaturedPost.css"
-import pollChart from '../../assets/images/icons/chart-simple.svg'
-import Homecharts from "../homeCharts/homeCharts"
+import React from "react";
+import "./FeaturedPost.css";
+import pollChart from '../../assets/images/icons/chart-simple.svg';
+import Homecharts from "../homeCharts/homeCharts";
+import { useTranslation } from "react-i18next";
 
-export default function FeaturedPost(){
-    return(
+export default function FeaturedPost() {
+    const { t } = useTranslation('featuredPost');
+
+    return (
         <section id="fePost-root" className="section-p">
             <div className="fePost-title">
-                <h1>Important Data for Farmers</h1>
+                <h1>{t('section.fePost-root.title')}</h1>
             </div>
             
             <div className="authorDetails">
                 <img src={pollChart} alt="" className="icon"/>
-                <p><a href="">Featured Poll</a>on Tue, Jun 27, 2024</p>
+                <p>
+                    <a href="">{t('section.fePost-root.authorDetails.authorLink')}</a>
+                    on {t('section.fePost-root.authorDetails.date')}
+                </p>
             </div>
             
             <main className="fePost-container">
@@ -20,74 +26,70 @@ export default function FeaturedPost(){
                 <div id="polls-section">
                     <form className="fe-polls">
                         <div className="poll">
-                            <h4>What Feature Do You Find Most Valuable in Farm Bandhu?</h4>
+                            <h4>{t('section.fePost-root.pollsSection.poll1.title')}</h4>
                             <div className="group">
                                 <input type="checkbox" name="" id="" />
-                                <label htmlFor="">Price Comparison Tool:Compare crop prices from various sources to get the best rates.</label>
+                                <label htmlFor="">{t('section.fePost-root.pollsSection.poll1.options.0')}</label>
                             </div>
                             <div className="group">
                                 <input type="checkbox" name="" id="" />
-                                <label htmlFor="">Market Insights:Understand land distribution and the competitive landscape.</label>
+                                <label htmlFor="">{t('section.fePost-root.pollsSection.poll1.options.1')}</label>
                             </div>
                             <div className="group">
                                 <input type="checkbox" name="" id="" />
-                                <label htmlFor="">Historical Performance Analysis:Track and analyze crop performance over the years.</label>
+                                <label htmlFor="">{t('section.fePost-root.pollsSection.poll1.options.2')}</label>
                             </div>
                             <div className="group">
                                 <input type="checkbox" name="" id="" />
-                                <label htmlFor="">User-Friendly Interface:Access data easily with our intuitive platform.</label>
+                                <label htmlFor="">{t('section.fePost-root.pollsSection.poll1.options.3')}</label>
                             </div>
-                            
                             <div className="poll-votes">
-                                <small>Total Votes: 24</small>
-                                <small>5 days left</small>
-                                <button className="poll-btn">Vote now</button>
+                                <small>{`Total Votes: ${t('section.fePost-root.pollsSection.poll1.totalVotes')}`}</small>
+                                <small>{t('section.fePost-root.pollsSection.poll1.daysLeft')}</small>
+                                <button className="poll-btn">{t('section.fePost-root.pollsSection.poll1.voteButtonText')}</button>
                             </div>
                         </div>
                     </form>
                     <form className="fe-polls">
-                        
                         <div className="poll">
-                            <h4>How Has Farm Bandhu Helped You in Your Farming Decisions?</h4>
+                            <h4>{t('section.fePost-root.pollsSection.poll2.title')}</h4>
                             <div className="group">
                                 <input type="checkbox" name="" id="" />
-                                <label htmlFor="">Improved Profit Margins:By selling crops at the best possible prices.</label>
+                                <label htmlFor="">{t('section.fePost-root.pollsSection.poll2.options.0')}</label>
                             </div>
                             <div className="group">
                                 <input type="checkbox" name="" id="" />
-                                <label htmlFor="">Better Market Understanding:Through insights into land distribution and competition.</label>
+                                <label htmlFor="">{t('section.fePost-root.pollsSection.poll2.options.1')}</label>
                             </div>
                             <div className="group">
                                 <input type="checkbox" name="" id="" />
-                                <label htmlFor="">Informed Crop Planning:Using historical performance data to plan future cycles.</label>
+                                <label htmlFor="">{t('section.fePost-root.pollsSection.poll2.options.2')}</label>
                             </div>
                             <div className="group">
                                 <input type="checkbox" name="" id="" />
-                                <label htmlFor="">Enhanced Overall Productivity:By utilizing advanced data analytics and predictions.</label>
+                                <label htmlFor="">{t('section.fePost-root.pollsSection.poll2.options.3')}</label>
                             </div>
                             <div className="poll-votes">
-                                <small>Total Votes: 24</small>
-                                <small>5 days left</small>
-                                <button className="poll-btn">Vote now</button>
+                                <small>{`Total Votes: ${t('section.fePost-root.pollsSection.poll2.totalVotes')}`}</small>
+                                <small>{t('section.fePost-root.pollsSection.poll2.daysLeft')}</small>
+                                <button className="poll-btn">{t('section.fePost-root.pollsSection.poll2.voteButtonText')}</button>
                             </div>
                         </div>
-
                     </form>
                 </div>
                 
                 {/* Second Container */}
                 <div className="fePost-content">
-                    <h4>Farm Bandhu: Empowering Farmers, Transforming Agriculture</h4>
-                    <p>Empowering Farmers Across India:From small farms to large fields, Farm Bandhu is here to support every farmer's journey.</p>
-                    <p>"Life on a farm is a school of patience. You can't hurry crops or make an ox in a day or two." <i className="quote-author">-Henri Alain</i></p>
-                    <p>Welcome to FarmBandhu, your go-to platform for region-specific insights and data-driven farming solutions. </p>
-                    <p>Explore detailed local market trends, crop performance, and land utilization analyses.</p>
-                    <p>Empower your farming decisions and maximize profitability with FarmBandhu's tailored data insights.</p>
-                    <h3>Some Important Illustrations for you!</h3>
+                    <h4>{t('section.fePost-root.postContent.title')}</h4>
+                    <p>{t('section.fePost-root.postContent.content.0')}</p>
+                    <p>{t('section.fePost-root.postContent.content.1')}</p>
+                    <p>{t('section.fePost-root.postContent.content.2')}</p>
+                    <p>{t('section.fePost-root.postContent.content.3')}</p>
+                    <p>{t('section.fePost-root.postContent.content.4')}</p>
+                    <h3>{t('section.fePost-root.postContent.illustrationsTitle')}</h3>
                 </div>
-
                 <Homecharts/>
             </main>
         </section>
-    )
+    );
 }

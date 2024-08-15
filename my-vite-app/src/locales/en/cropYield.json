@@ -1,0 +1,21 @@
+{
+    "form": {
+      "step1": {
+        "backLinkText": "Back to Home"
+      },
+      "yieldPrediction": {
+        "title": "Yield Prediction",
+        "fields": {
+          "crop": "Crop:",
+          "rainfall": "Average Rainfall (mm/year):",
+          "pesticides": "Pesticides (tonnes):",
+          "temperature": "Average Temperature (°C):"
+        },
+        "buttonText": "Predict",
+        "result": {
+          "title": "Predicted Yield: "
+        }
+      }
+    }
+  }
+  

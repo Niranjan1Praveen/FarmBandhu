@@ -1,0 +1,52 @@
+{
+    "footer": {
+      "logoTitle": "Farm Bandhu",
+      "about": {
+        "title": "About",
+        "links": [
+          "About us",
+          "Contact us",
+          "Subscribe"
+        ]
+      },
+      "services": {
+        "title": "Services",
+        "links": [
+          "Crop Price Analyser",
+          "Crop Yield Calculator",
+          "Crop Type Suggestor",
+          "Crop Disease Predictor"
+        ]
+      },
+      "support": {
+        "title": "Support",
+        "links": [
+          "FAQ",
+          "Ask for Help"
+        ]
+      },
+      "logIn": {
+        "alt": "login image",
+        "text": "Log In"
+      },
+      "socialMedia": {
+        "linkedin": "LinkedIn social media link",
+        "twitter": "Twitter social media link",
+        "facebook": "Facebook social media link",
+        "instagram": "Instagram social media link",
+        "quora": "Quora social media link"
+      },
+      "bottom": {
+        "copyright": [
+          "@2024 ",
+          "All rights reserved. All creations copyright belongs to the creators."
+        ],
+        "privacy": [
+          "Legal Notice",
+          "Privacy Policy",
+          "Terms of Use"
+        ]
+      }
+    }
+  }
+  

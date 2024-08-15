@@ -1,0 +1,34 @@
+{
+    "form": {
+        "step1": {
+            "backLinkText": "होम पेज पर वापस जाएं",
+            "title": "मूल्य तुलना, भूमि आकार तुलना और फसल प्रदर्शन विश्लेषण प्राप्त करने के लिए नीचे दिए गए विवरण भरें जो आपके क्षेत्र की विशिष्ट परिस्थितियों के अनुसार तैयार किया गया है।",
+            "menuSteps": ["1", "2"],
+            "cropSelection": {
+                "label": "अपनी फसल का प्रकार चुनें",
+                "errorMessage": "आगे बढ़ने के लिए कृपया एक विकल्प चुनें",
+                "nextButtonText": "अगला"
+            }
+        },
+        "step2": {
+            "stateSelection": {
+                "label": "अपना राज्य चुनें",
+                "errorMessage": "आगे बढ़ने के लिए कृपया एक विकल्प चुनें"
+            },
+            "farmLandArea": {
+                "label": "अपना कृषि भूमि क्षेत्र दर्ज करें",
+                "hint": "(हेक्टेयर में)",
+                "inputPlaceholder": "जैसे 4.7 और आगे"
+            },
+            "buttons": {
+                "backButtonText": "वापस",
+                "submitButtonText": "डेटा अभी प्राप्त करें"
+            },
+            "submittedData": {
+                "cropLabel": "crop.label",
+                "stateLabel": "state.label",
+                "hectares": "formData.area"
+            }
+        }
+    }
+}

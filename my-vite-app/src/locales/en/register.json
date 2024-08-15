@@ -1,0 +1,33 @@
+{
+    "registerContainer": {
+      "links": [
+        "go back to home page"
+      ],
+      "logoAlt": "Website logo",
+      "paragraph": "Create your Farm Bandhu account",
+      "inputs": [
+        {
+          "placeholder": "Username"
+        },
+        {
+          "placeholder": "Phone Number"
+        },
+        {
+          "placeholder": "Password"
+        }
+      ],
+      "termsText": "By submitting the form you agree to the",
+      "termsLink": "Terms of Services",
+      "submitButton": "Join Now",
+      "providerSignInContainer": {
+        "wrap": {
+          "small": "or"
+        },
+        "providerButtons": [
+          "Continue with Google",
+          "Continue with Facebook"
+        ]
+      }
+    }
+  }
+  

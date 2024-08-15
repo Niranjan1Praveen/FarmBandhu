@@ -1,0 +1,39 @@
+{
+    "form": {
+      "leaveMessage": "Leave a message",
+      "title": "We love to hear from you!",
+      "fields": {
+        "name": "Your Name",
+        "email": "Your Email",
+        "subject": "Your Subject",
+        "message": "Your Message"
+      },
+      "submitButton": "Submit"
+    },
+    "members": {
+      "sectionTitle": "Members of Farm Bandhu",
+      "people": [
+        {
+          "name": "Vaibhav Jain",
+          "phone": "Phone: +91 XXXXXXXXXX",
+          "email": "Email: abc@gmail.com"
+        },
+        {
+          "name": "Niranjan Praveen",
+          "phone": "Phone: +91 XXXXXXXXXX",
+          "email": "Email: abc@gmail.com"
+        },
+        {
+          "name": "Debshata Choudhury",
+          "phone": "Phone: +91 XXXXXXXXXX",
+          "email": "Email: abc@gmail.com"
+        },
+        {
+          "name": "Abhishek Chaubey",
+          "phone": "Phone: +91 XXXXXXXXXX",
+          "email": "Email: abc@gmail.com"
+        }
+      ]
+    }
+  }
+  

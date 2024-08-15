@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Line, Bar, Pie } from 'react-chartjs-2';
 import Papa from 'papaparse';
 import './homeCharts.css';
+import { useTranslation } from 'react-i18next';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -28,6 +29,7 @@ ChartJS.register(
 );
 
 const Homecharts = () => {
+  const { t } = useTranslation('homeCharts');
   const [growthRates, setGrowthRates] = useState([]);
   const [areaShares, setAreaShares] = useState([]);
   const [valueShares, setValueShares] = useState([]);
@@ -37,15 +39,15 @@ const Homecharts = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const growthRatesResponse = await parseCSV('../../src/farmDatasets/AnalyticsTool/1.2.csv');
-      const areaSharesResponse = await parseCSV('../../src/farmDatasets/AnalyticsTool/1.3.csv');
-      const valueSharesResponse = await parseCSV('../../src/farmDatasets/AnalyticsTool/1.4.csv');
-      const landHoldingResponse = await parseCSV('../../src/farmDatasets/AnalyticsTool/1.8.csv');
-      const priceRealisationLocalResponse = await parseCSV('../../src/farmDatasets/AnalyticsTool/4.3local.csv');
-      const priceRealisationPrivateResponse = await parseCSV('../../src/farmDatasets/AnalyticsTool/4.3private.csv');
-      const priceRealisationMandiResponse = await parseCSV('../../src/farmDatasets/AnalyticsTool/4.3mandi.csv');
-      const priceRealisationInputResponse = await parseCSV('../../src/farmDatasets/AnalyticsTool/4.3inputdealers.csv');
-      const priceRealisationCoopResponse = await parseCSV('../../src/farmDatasets/AnalyticsTool/4.3coop&govt.csv');
+      const growthRatesResponse = await parseCSV('/data/farmDatasets/AnalyticsTool/1.2.csv');
+      const areaSharesResponse = await parseCSV('/data/farmDatasets/AnalyticsTool/1.3.csv');
+      const valueSharesResponse = await parseCSV('/data/farmDatasets/AnalyticsTool/1.4.csv');
+      const landHoldingResponse = await parseCSV('/data/farmDatasets/AnalyticsTool/1.8.csv');
+      const priceRealisationLocalResponse = await parseCSV('/data/farmDatasets/AnalyticsTool/4.3local.csv');
+      const priceRealisationPrivateResponse = await parseCSV('/data/farmDatasets/AnalyticsTool/4.3private.csv');
+      const priceRealisationMandiResponse = await parseCSV('/data/farmDatasets/AnalyticsTool/4.3mandi.csv');
+      const priceRealisationInputResponse = await parseCSV('/data/farmDatasets/AnalyticsTool/4.3inputdealers.csv');
+      const priceRealisationCoopResponse = await parseCSV('/data/farmDatasets/AnalyticsTool/4.3coop&govt.csv');
 
       setGrowthRates(growthRatesResponse);
       setAreaShares(areaSharesResponse);
@@ -143,25 +145,23 @@ const Homecharts = () => {
   };
   return (
     <div className="homeCharts-container">
-      <div className="charts-box">
-        <h2>Historical Growth Rates of Crop Categories</h2>
-        {growthRates.length > 0 && <Line data={growthRatesData} />}
-      </div>
-      <div className="charts-box">
-        <h2>Area Shares of Crop Categories</h2>
-        {priceRealisation.length > 0 && <Pie data={latestAreaSharesData} />}
-      </div>
-      <div className="charts-box">
-        <h2>Area Shares of Crop Categories to GCA</h2>
-        {areaShares.length > 0 && <Bar data={areaSharesData} />}
-      </div>
-
-      <div className="charts-box">
-        <h2>Value Shares of Crop Categories</h2>
-        {valueShares.length > 0 && <Line data={valueSharesData} />}
-      </div>
-
-    </div>
+            <div className="charts-box">
+                <h2>{t('homeCharts.historicalGrowthRates.title')}</h2>
+                {t('homeCharts.historicalGrowthRates.dataAvailable') && <Line data={growthRatesData} />}
+            </div>
+            <div className="charts-box">
+                <h2>{t('homeCharts.areaSharesOfCropCategories.title')}</h2>
+                {t('homeCharts.areaSharesOfCropCategories.dataAvailable') && <Pie data={latestAreaSharesData} />}
+            </div>
+            <div className="charts-box">
+                <h2>{t('homeCharts.areaSharesToGCA.title')}</h2>
+                {t('homeCharts.areaSharesToGCA.dataAvailable') && <Bar data={areaSharesData} />}
+            </div>
+            <div className="charts-box">
+                <h2>{t('homeCharts.valueSharesOfCropCategories.title')}</h2>
+                {t('homeCharts.valueSharesOfCropCategories.dataAvailable') && <Line data={valueSharesData} />}
+            </div>
+        </div>
   );
 };
 

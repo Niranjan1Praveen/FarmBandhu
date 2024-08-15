@@ -110,9 +110,6 @@ input:hover{
     #contact-form #form {
         width: 80%;
     }
-    #login-form {
-        width: 50%;
-    }
     .hero-grid{
         display: none;
     }
@@ -165,18 +162,13 @@ input:hover{
     #contact-form #form {
         width: 100%;
     }
-    #login-form {
-        width: 70%;
-    }
     .related-posts-container {
         flex-basis: 100%;
     }
     .quill-editor{
         margin-bottom: 80px;
     }
-    .logo-title {
-        display: none;
-    }
+    
     #polls-section {
         width: 100%;
     }

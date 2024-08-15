@@ -1,0 +1,15 @@
+{
+    "title": "Farm Bandhu",
+    "home": "Home",
+    "news": "News",
+    "tools": {
+        "title": "Analytical Tools",
+        "links": ["Crop Price Analysis", "Crop Recommendation", "Crop Yield Analysis", "Plant Disease Analysis"]
+    },
+    "about": "About us",
+    "contact": "Contact us",
+    "signUp": "Sign Up",
+    "logIn": "Log In",
+    "logOut": "Log Out"
+}
+  

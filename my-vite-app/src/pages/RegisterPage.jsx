@@ -1,6 +1,6 @@
 import React from 'react';
 import Register from "../components/Register/Register"
-const RegisterPage = ({setIsAuth}) => {
+const RegisterPage = ({isAuth, setIsAuth}) => {
     return (
         <React.Fragment>
             <Register setIsAuth={setIsAuth}/>

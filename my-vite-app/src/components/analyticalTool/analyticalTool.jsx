@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './analyticalTool.css';
+import { useSpeechSynthesis } from 'react-speech-kit';
+import speaker from '../../assets/images/icons/speaker.svg';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -25,11 +27,13 @@ ChartJS.register(
   Legend
 );
 
-const AnalyticalTool = ({ crop, state, hectares }) => {
+const AnalyticalTool = ({ crop, state, hectares,district }) => {
   const [farmCategory, setFarmCategory] = useState('');
   const [priceRealizations, setPriceRealizations] = useState({});
   const [landData, setLandData] = useState(null);
   const [valueShares, setValueShares] = useState(null);
+  const [cropPrices, setCropPrices] = useState([]);
+  const [modalPrice, setModalPrice] = useState('Loading...');
 
   useEffect(() => {
     setFarmCategory(determineCategory(hectares));
@@ -48,45 +52,79 @@ const AnalyticalTool = ({ crop, state, hectares }) => {
   };
 
   const fetchData = async () => {
-    await Promise.all([
-      parseCSV('../../src/farmDatasets/AnalyticsTool/4.3local.csv', 'Local'),
-      parseCSV('../../src/farmDatasets/AnalyticsTool/4.3private.csv', 'Private'),
-      parseCSV('../../src/farmDatasets/AnalyticsTool/4.3mandi.csv', 'Mandi'),
-      parseCSV('../../src/farmDatasets/AnalyticsTool/4.3inputdealers.csv', 'InputDealers'),
-      parseCSV('../../src/farmDatasets/AnalyticsTool/4.3coop&govt.csv', 'CoopAndGovt'),
-      parseCSV('../../src/farmDatasets/AnalyticsTool/1.8.csv', 'landData'),
-      parseCSV('../../src/farmDatasets/AnalyticsTool/1.4.csv', 'valueShares')
-    ]);
+    try {
+      await Promise.all([
+        parseCSV('/data/farmDatasets/AnalyticsTool/4.3local.csv', 'Local'),
+        parseCSV('/data/farmDatasets/AnalyticsTool/4.3private.csv', 'Private'),
+        parseCSV('/data/farmDatasets/AnalyticsTool/4.3mandi.csv', 'Mandi'),
+        parseCSV('/data/farmDatasets/AnalyticsTool/4.3inputdealers.csv', 'InputDealers'),
+        parseCSV('/data/farmDatasets/AnalyticsTool/4.3coop&govt.csv', 'CoopAndGovt'),
+        parseCSV('/data/farmDatasets/AnalyticsTool/1.8.csv', 'landData'),
+        parseCSV('/data/farmDatasets/AnalyticsTool/1.4.csv', 'valueShares'),
+        parseCSV('/data/farmDatasets/AnalyticsTool/cropPrices.csv', 'cropPrices')
+      ]);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
 
   const parseCSV = async (url, type) => {
-    const response = await fetch(url);
-    const text = await response.text();
-    Papa.parse(text, {
-      header: true,
-      complete: (result) => {
-        const data = result.data;
-        if (type === 'landData') {
-          setLandData(data);
-        } else if (type === 'valueShares') {
-          setValueShares(data);
-        } else {
-          setPriceRealizations(prevState => ({
-            ...prevState,
-            [type]: getPriceRealisation(data, crop)
-          }));
-        }
-      }
-    });
+    try {
+      const response = await fetch(url);
+      const text = await response.text();
+      Papa.parse(text, {
+        header: true,
+        complete: (result) => {
+          const data = result.data;
+          if (type === 'landData') {
+            setLandData(data);
+          } else if (type === 'valueShares') {
+            setValueShares(data);
+          } else if (type === 'cropPrices') {
+            setCropPrices(data);
+            updateModalPrice(data); // Update modal price on new data
+          } else {
+            setPriceRealizations(prevState => ({
+              ...prevState,
+              [type]: getPriceRealisation(data, crop)
+            }));
+          }
+        },
+        error: (error) => console.error(`Error parsing ${type} CSV:`, error)
+      });
+    } catch (error) {
+      console.error(`Error fetching ${type} CSV:`, error);
+    }
   };
 
   const getPriceRealisation = (data, crop) => {
-    const filtered = data.filter(d => d.Crops.toLowerCase().includes(crop.toLowerCase()));
+    const normalizedCrop = crop.toLowerCase().trim();
+    const filtered = data.filter(d => d.Crops && d.Crops.toLowerCase().trim() === normalizedCrop);
     if (filtered.length > 0) {
       return filtered[0];
     }
     return null;
   };
+
+  const updateModalPrice = (data) => {
+    const normalizedCrop = crop.toLowerCase().trim();
+    const normalizedState = state.toLowerCase().trim();
+    
+    const filtered = data.filter(d => 
+      d.Crops && d.State &&
+      d.Crops.toLowerCase().includes(normalizedCrop) &&
+      d.State.toLowerCase().includes(normalizedState)
+    );
+    
+    if (filtered.length > 0) {
+      const modalPrices = filtered.map(d => parseFloat(d['Modal Price'])).filter(price => !isNaN(price));
+      const mostRecentModalPrice = modalPrices[modalPrices.length - 1];
+      setModalPrice(mostRecentModalPrice ? `${mostRecentModalPrice} Rs.` : 'No data available');
+    } else {
+      setModalPrice('No data available');
+    }
+  };
+  
 
   const plotPriceRealisation = useCallback(() => {
     if (!priceRealizations || Object.keys(priceRealizations).length === 0) return null;
@@ -229,7 +267,7 @@ const AnalyticalTool = ({ crop, state, hectares }) => {
     const data = {
       labels: years,
       datasets: [{
-        label: `Value Share of ${crop} Over the Years`,
+        label: `Value Share of ${crop}`,
         data: values,
         borderColor: 'blue',
         fill: false
@@ -271,22 +309,61 @@ const AnalyticalTool = ({ crop, state, hectares }) => {
     return <div style={{ width: '100%', height: '400px' }}><Line data={data} options={options} /></div>;
   }, [valueShares, crop]);
 
+  const { speak } = useSpeechSynthesis();
+
+  const voiceText = (graphType) => {
+    let text = '';
+    if (graphType === 'priceRealisation') {
+      text = `This chart shows the price realization for ${crop} in ${state} across various market channels like Local, Private, Mandi, Input Dealers, and Cooperative and Govt.`;
+    } else if (graphType === 'landComparison') {
+      text = `This chart compares your land size of ${hectares} hectares with the average land sizes for different farm categories in ${state}, such as Marginal, Small, SemiMedium, Medium, and Large.`;
+    } else if (graphType === 'valueShares') {
+      text = `This chart displays the value share of ${crop} over the years, highlighting trends in the crop's value contribution.`;
+    }
+    speak({ text: text, volume: .5, pitch: 1 });
+  };
+
   return (
     <div className='analytical-charts-container'>
       <h1>Agricultural Analysis for {state}</h1>
+      <div className='modal-price-display'>
+        <h2>1. Per Quintal Wholesale Price for {crop} in {district}({state}): <span>{modalPrice}</span> </h2>
+      </div>
       <div className='charts-box'>
-        <h2>1. Price Realisation</h2>
+        <h2>2. Price Realisation</h2>
         {plotPriceRealisation()}
+        <button onClick={(e) => {
+          e.preventDefault();
+          voiceText('priceRealisation');
+        }} className="charts-box-speaker">
+          <span>Explain this chart</span>
+          <img src={speaker} alt="explain this graph" className='icon' />
+        </button>
       </div>
       <div className='charts-box'>
-        <h2>2. Land Size Comparison</h2>
+        <h2>3. Land Size Comparison</h2>
         {plotLandComparison()}
+        <button onClick={(e) => {
+          e.preventDefault();
+          voiceText('landComparison');
+        }} className="charts-box-speaker">
+          <span>Explain this chart</span>
+          <img src={speaker} alt="explain this graph" className='icon' />
+        </button>
       </div>
       <div className='charts-box'>
-        <h2>3. Value Share Over the Years</h2>
+        <h2>4. Value Share Over the Years</h2>
         {plotValueShares()}
+        <button onClick={(e) => {
+          e.preventDefault();
+          voiceText('valueShares');
+        }} className="charts-box-speaker">
+          <span>Explain this chart</span>
+          <img src={speaker} alt="explain this graph" className='icon' />
+        </button>
       </div>
-      <span className='analytical-note-text'>(NOTE: The analysis is based on the report, "The March of Agriculture since independence" by  Department of Agriculture and Farmers Welfare Government of India.)</span>
+      
+      <span className='analytical-note-text'>(NOTE: The analysis is based on the report, "The March of Agriculture since independence" by Department of Agriculture and Farmers Welfare Government of India.)</span>
     </div>
   );
 };

@@ -1,0 +1,32 @@
+{
+    "registerContainer": {
+      "links": [
+        "मुख्य पृष्ठ पर वापस जाएं"
+      ],
+      "logoAlt": "वेबसाइट लोगो",
+      "paragraph": "अपना फार्म बंधु खाता बनाएं",
+      "inputs": [
+        {
+          "placeholder": "उपयोगकर्ता नाम"
+        },
+        {
+          "placeholder": "फोन नंबर"
+        },
+        {
+          "placeholder": "पासवर्ड"
+        }
+      ],
+      "termsText": "फॉर्म सबमिट करके आप हमारी सेवा की शर्तों से सहमत होते हैं",
+      "submitButton": "अब शामिल हों",
+      "providerSignInContainer": {
+        "wrap": {
+          "small": "या"
+        },
+        "providerButtons": [
+          "गूगल के साथ जारी रखें",
+          "फेसबुक के साथ जारी रखें"
+        ]
+      }
+    }
+  }
+  

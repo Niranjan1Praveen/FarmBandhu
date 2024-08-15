@@ -1,0 +1,18 @@
+{
+    "cropRecommendation": {
+      "backLinkText": "मुख्य पृष्ठ पर वापस जाएं",
+      "title": "फसल सिफारिश",
+      "placeholders": {
+        "nitrogen": "नाइट्रोजन का प्रतिशत",
+        "phosphorus": "फॉस्फोरस का प्रतिशत",
+        "potassium": "पोटेशियम का प्रतिशत",
+        "temperature": "डिग्री सेल्सियस में तापमान",
+        "humidity": "नमी का प्रतिशत",
+        "ph": "मिट्टी का pH",
+        "rainfall": "वर्षा का प्रतिशत"
+      },
+      "buttonText": "फसल का पूर्वानुमान करें",
+      "resultTitle": "अनुशंसित फसल: {result}"
+    }
+  }
+  

@@ -1,0 +1,38 @@
+{
+    "form": {
+        "step1": {
+            "backLinkText": "go back to home page",
+            "title": "Fill the below details to receive Price Comparison, Land size Comparison and Crop Performance Analysis tailored to your region's specific conditions.",
+            "menuSteps": ["1", "2"],
+            "cropSelection": {
+                "label": "Select your Crop Type",
+                "errorMessage": "Please select an option to proceed",
+                "nextButtonText": "Next"
+            }
+        },
+        "step2": {
+            "stateSelection": {
+                "label": "Select your State",
+                "errorMessage": "Please select an option to proceed"
+            },
+            "districtSelection": {
+                "label": "Select your District",
+                "errorMessage": "Please select an option to proceed"
+            },
+            "farmLandArea": {
+                "label": "Enter your Farm Land Area",
+                "hint": "(in hectares)",
+                "inputPlaceholder": "4.7 and so on"
+            },
+            "buttons": {
+                "backButtonText": "Back",
+                "submitButtonText": "Get Data Now"
+            },
+            "submittedData": {
+                "cropLabel": "crop.label",
+                "stateLabel": "state.label",
+                "hectares": "formData.area"
+            }
+        }
+    }
+}

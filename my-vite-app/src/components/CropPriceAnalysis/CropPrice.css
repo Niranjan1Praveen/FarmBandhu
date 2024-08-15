@@ -1,0 +1,95 @@
+#tools{
+    display: flex;
+    height: 100%;
+    background-color: #040924;
+    min-height: 100vh;
+}
+#tools .tools-survey{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px 50px 20px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(31, 35, 37, 0.05) 0px 10px 20px;
+    border-radius: 4px;
+}
+.tools-menu{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    margin: 10px 0;
+}
+.tools-menu span{
+    border-radius: 100%;
+    padding: 12px 20px;
+    text-align: center;
+    border: 5px solid #f9f9f9;
+}
+.tools-menu .menu-line{
+    width: 40%;
+    height: .3rem;
+    background-color: #f9f9f9;
+    border-radius: 2px;
+}
+.tools-survey .tools-title{
+    font-size: 1.4rem;
+}
+
+.tools-survey .tools-submit-btn{
+    background-color: rgb(3, 99, 209);
+    height: 38px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    outline: none;
+    border-radius: 4px;
+}
+.form-step {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 10px;
+}
+
+.form-step label {
+    margin-top: 10px;
+}
+.form-step label span{
+    font-size: small;
+    color: red;
+}
+
+.form-step input {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-step .tools-btn{
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+}
+.form-step .tools-btn-box{
+    display: flex;
+    justify-content: space-between;
+}
+.tools-error{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+.tools-error span{
+    font-size: small;
+    color: red;
+}
+.tools-error img{
+    width: 15px;
+    height: 15px;
+}

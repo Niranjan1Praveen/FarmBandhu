@@ -20,6 +20,28 @@
     font-size: small;
     color: rgb(3, 99, 209);
 }
+.charts-box .charts-box-speaker{
+    padding: 5px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+.charts-box-speaker span{
+    color: rgb(3, 99, 209);
+}
+.modal-price-display{
+    display: flex;
+    align-items: center;
+}
+.modal-price-display span{
+    color: green;
+    font-weight: bolder;
+    font-size: 1.9rem;
+}
 @media (max-width: 768px) {
     .charts-box {
         width: 90%;

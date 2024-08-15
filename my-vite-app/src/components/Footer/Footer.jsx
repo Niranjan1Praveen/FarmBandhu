@@ -1,77 +1,79 @@
 import React from "react";
-import userSvg from '../../assets/images/icons/user.svg'
-import facebookSvg from '../../assets/images/icons/facebook-f.svg'
-import twitterSvg from '../../assets/images/icons/twitter.svg'
-import linkedInSvg from '../../assets/images/icons/linkedin-in.svg'
-import instagramSvg from '../../assets/images/icons/instagram.svg'
-import quoraSvg from '../../assets/images/icons/quora.svg'
+import userSvg from '../../assets/images/icons/user.svg';
+import facebookSvg from '../../assets/images/icons/facebook-f.svg';
+import twitterSvg from '../../assets/images/icons/twitter.svg';
+import linkedInSvg from '../../assets/images/icons/linkedin-in.svg';
+import instagramSvg from '../../assets/images/icons/instagram.svg';
+import quoraSvg from '../../assets/images/icons/quora.svg';
 
-import "./Footer.css"
+import "./Footer.css";
 import { Link } from "react-router-dom";
-export default function Footer({isAuth, setIsAuth}){
-    return(
+import { useTranslation } from "react-i18next";
+
+export default function Footer({ isAuth }) {
+    const { t } = useTranslation('footer');
+
+    return (
         <footer id="footer" className="section-p">
             {/* Footer Top */}
             <section id="footer-container">
                 <div className="col">
-                    <h3 className="logo-title">Farm Bandhu</h3>
+                    <h3 className="logo-title">{t('footer.logoTitle')}</h3>
                 </div>
                 <div className="col">
-                    <a className="title">About</a>
+                    <a className="title">{t('footer.about.title')}</a>
                     <div className="footer-links">
-                        <a href="">About us</a>
-                        <a href="">Contact us</a>
-                        <a href="">Subscribe</a>
-
-                        
+                        <a href="#">{t('footer.about.links.0')}</a>
+                        <a href="#">{t('footer.about.links.1')}</a>
+                        <a href="#">{t('footer.about.links.2')}</a>
                     </div>
                 </div>
                 <div className="col">
-                    <h4 className="title">Services</h4>
+                    <h4 className="title">{t('footer.services.title')}</h4>
                     <div className="footer-links">
-                        <a href="">link goes here</a>
-                        <a href="">link goes here</a>
-                        <a href="">link goes here</a>
-                        <a href="">link goes here</a>
-                        <a href="">link goes here</a>
-                        
+                        <a href="#">{t('footer.services.links.0')}</a>
+                        <a href="#">{t('footer.services.links.1')}</a>
+                        <a href="#">{t('footer.services.links.2')}</a>
+                        <a href="#">{t('footer.services.links.3')}</a>
                     </div>
                 </div>
                 <div id="footer-social" className="col">
-                    <h4 className="title">Support</h4>
+                    <h4 className="title">{t('footer.support.title')}</h4>
                     <div className="footer-links">
-                        <a href="">link goes here</a>
-                        <a href="">link goes here</a> 
-                        <a href="">link goes here</a> 
+                        <a href="#">{t('footer.support.links.0')}</a>
+                        <a href="#">{t('footer.support.links.1')}</a>
                     </div>
                 </div>
                 <div className="col social">
-                    {!isAuth && <button className="footer-logIn">
-                        <img src={userSvg} className="icon" alt="login image"/>
-                        <Link to='/login'>Log In</Link>
-                    </button>}
+                    {!isAuth && (
+                        <button className="footer-logIn">
+                            <img src={userSvg} className="icon" alt={t('logIn.alt')} />
+                            <Link to='/login'>{t('footer.logIn.text')}</Link>
+                        </button>
+                    )}
 
                     <div className="social-icons">
-                        <img src={linkedInSvg} alt="LinkedIn social media link" className="icon" />
-                        <img src={twitterSvg} alt="Twitter social media link" className="icon" />
-                        <img src={facebookSvg} alt="Facebook social media link" className="icon" />
-                        <img src={instagramSvg} alt="Instagram social media link" className="icon" />
-                        <img src={quoraSvg} alt="Quora social media link" className="icon" />
+                        <img src={linkedInSvg} alt={t('footer.socialMedia.linkedin')} className="icon" />
+                        <img src={twitterSvg} alt={t('footer.socialMedia.twitter')} className="icon" />
+                        <img src={facebookSvg} alt={t('footer.socialMedia.facebook')} className="icon" />
+                        <img src={instagramSvg} alt={t('footer.socialMedia.instagram')} className="icon" />
+                        <img src={quoraSvg} alt={t('footer.socialMedia.quora')} className="icon" />
                     </div>
                 </div>
             </section>
-            
+
             {/* Footer Bottom */}
             <section id="footer-bottom">
                 <div className="copyright">
-                    <small>@2023 - 2023 Lorem, ipsum dolor.</small>
-                    <small>All rights reserved. All creations copyright belongs to the creators.</small>                </div>
+                    <small>{t('footer.bottom.copyright.0')}</small>
+                    <small>{t('footer.bottom.copyright.1')}</small>
+                </div>
                 <div className="privacy">
-                    <a href="">Legal Notice</a>
-                    <a href="">Privacy Policy</a>
-                    <a href="">Terms of Use</a>
+                    <a href="#">{t('footer.bottom.privacy.0')}</a>
+                    <a href="#">{t('footer.bottom.privacy.1')}</a>
+                    <a href="#">{t('footer.bottom.privacy.2')}</a>
                 </div>
             </section>
         </footer>
-    )
+    );
 }
