@@ -29,7 +29,7 @@ export default function Header({ isAuth, setIsAuth }) {
         localStorage.setItem('isAuth', false);
         // localStorage.clear();
         setIsAuth(false);
-        navigate("/register");
+        navigate("/login");
     }
 
     return (
