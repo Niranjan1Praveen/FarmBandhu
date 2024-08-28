@@ -39,6 +39,7 @@ import cropYieldHi from '../locales/hi/cropYield.json'
 import cropRecommEn from '../locales/en/cropRecommendation.json'
 import cropRecommHi from '../locales/hi/cropRecommendation.json'
 
+
 i18n
   .use(initReactI18next)
   .init({

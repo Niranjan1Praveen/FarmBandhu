@@ -11,6 +11,10 @@
         "ph": "pH of Soil",
         "rainfall": "Percentage of Rainfall"
       },
+      "cropYield": {
+        "area": "Area in hectares",
+        "production": "Production in hectograms"
+      },
       "buttonText": "Predict Crop",
       "resultTitle": "Recommended Crop: {result}"
     }

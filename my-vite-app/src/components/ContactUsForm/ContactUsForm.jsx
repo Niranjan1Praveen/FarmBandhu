@@ -4,6 +4,8 @@ import Vaibhav from '../../assets/images/users/vaibhav.jpeg';
 import Niranjan from '../../assets/images/users/niranjan.jpeg';
 import Debshata from '../../assets/images/users/debshata.jpeg';
 import Abhishek from '../../assets/images/users/abhishek.jpeg';
+import Sneha from '../../assets/images/users/sneha.jpeg'
+import Pratham from '../../assets/images/users/pratham.jpeg'
 
 import { useTranslation } from "react-i18next";
 
@@ -39,6 +41,14 @@ export default function ContactUsForm() {
                 <div className="people">
                     <img src={Abhishek} alt="abhishek img" />
                     <p><span>{t('members.people.3.name')}</span>{t('members.people.3.phone')} <br/> {t('members.people.3.email')}</p>
+                </div>
+                <div className="people">
+                    <img src={Sneha} alt="sneha img" />
+                    <p><span>{t('members.people.4.name')}</span>{t('members.people.3.phone')} <br/> {t('members.people.3.email')}</p>
+                </div>
+                <div className="people">
+                    <img src={Pratham} alt="pratham img" />
+                    <p><span>{t('members.people.5.name')}</span>{t('members.people.3.phone')} <br/> {t('members.people.3.email')}</p>
                 </div>
             </div>
         </section>

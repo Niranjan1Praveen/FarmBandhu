@@ -54,7 +54,6 @@ const AnalyticalTool = ({ crop, state, hectares,district }) => {
   const fetchData = async () => {
     try {
       await Promise.all([
-        parseCSV('/data/farmDatasets/AnalyticsTool/4.3local.csv', 'Local'),
         parseCSV('/data/farmDatasets/AnalyticsTool/4.3private.csv', 'Private'),
         parseCSV('/data/farmDatasets/AnalyticsTool/4.3mandi.csv', 'Mandi'),
         parseCSV('/data/farmDatasets/AnalyticsTool/4.3inputdealers.csv', 'InputDealers'),
@@ -132,10 +131,10 @@ const AnalyticalTool = ({ crop, state, hectares,district }) => {
     const labels = [];
     const dataValues = [];
 
-    if (priceRealizations.Local) {
-      labels.push('Local');
-      dataValues.push(priceRealizations.Local[farmCategory]);
-    }
+    // if (priceRealizations.Local) {
+    //   labels.push('Local');
+    //   dataValues.push(priceRealizations.Local[farmCategory]);
+    // }
     if (priceRealizations.Private) {
       labels.push('Private');
       dataValues.push(priceRealizations.Private[farmCategory]);
@@ -309,25 +308,36 @@ const AnalyticalTool = ({ crop, state, hectares,district }) => {
     return <div style={{ width: '100%', height: '400px' }}><Line data={data} options={options} /></div>;
   }, [valueShares, crop]);
 
-  const { speak } = useSpeechSynthesis();
-
   const voiceText = (graphType) => {
     let text = '';
+    
     if (graphType === 'priceRealisation') {
-      text = `This chart shows the price realization for ${crop} in ${state} across various market channels like Local, Private, Mandi, Input Dealers, and Cooperative and Govt.`;
+        text = `This chart shows the price realization for ${crop} in ${state} across various market channels like Private, Mandi, Input Dealers, and Cooperative and Govt.`;
     } else if (graphType === 'landComparison') {
-      text = `This chart compares your land size of ${hectares} hectares with the average land sizes for different farm categories in ${state}, such as Marginal, Small, SemiMedium, Medium, and Large.`;
+        text = `This chart compares your land size of ${hectares} hectares with the average land sizes for different farm categories in ${state}, such as Marginal, Small, SemiMedium, Medium, and Large.`;
     } else if (graphType === 'valueShares') {
-      text = `This chart displays the value share of ${crop} over the years, highlighting trends in the crop's value contribution.`;
+        text = `This chart displays the value share of ${crop} over the years, highlighting trends in the crop's value contribution.`;
     }
-    speak({ text: text, volume: .5, pitch: 1 });
-  };
+
+    const synth = window.speechSynthesis;
+    const voices = synth.getVoices();
+    
+    const femaleVoice = voices.find(voice => voice.name.includes('Female') || voice.name.includes('female'));
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.volume = 0.5;
+    utterance.pitch = 1;   
+    utterance.voice = femaleVoice || voices[0];
+
+    synth.speak(utterance);
+};
+
 
   return (
     <div className='analytical-charts-container'>
       <h1>Agricultural Analysis for {state}</h1>
       <div className='modal-price-display'>
-        <h2>1. Per Quintal Wholesale Price for {crop} in {district}({state}): <span>{modalPrice}</span> </h2>
+        <h2>1. Per Quintal(100 kg) Wholesale Price for {crop} in {district}({state}): <span>{modalPrice}</span> </h2>
       </div>
       <div className='charts-box'>
         <h2>2. Price Realisation</h2>

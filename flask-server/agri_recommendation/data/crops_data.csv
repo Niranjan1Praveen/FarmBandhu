@@ -1,0 +1,59 @@
+Crop Name,Climatic Zone,Growing Months,Optimal Soil,Irrigation Needs,Optimal Temperature,Fertilizer Requirements,Additional Information
+Wheat,Temperate,March to June,Loamy,Moderate,10-15°C,Nitrogen-rich,Prefers cool weather
+Rice,Tropical,May to October,Clay,High,25-30°C,High in phosphorus,Needs warm temperatures and plenty of water
+Maize,Tropical,April to August,Loamy,Moderate,20-30°C,High in nitrogen,Requires warm temperatures for germination
+Barley,Temperate,March to July,Loamy,Low,10-20°C,Moderate,Prefers cooler weather; frost-tolerant
+Cotton,Tropical,April to September,Loamy,High,20-30°C,High in potassium,Requires warm conditions and plenty of sunlight
+Sugarcane,Tropical,June to November,Clay,Very High,20-35°C,High in nitrogen and potassium,Requires high rainfall and humidity
+Soybean,Subtropical,June to September,Sandy Loam,Moderate,20-30°C,High in phosphorus,Requires well-drained soil and warm temperatures
+Sorghum,Tropical,June to September,Loamy,Low,25-30°C,Moderate,Very drought-resistant; thrives in warm temperatures
+Millet,Tropical,June to September,Sandy Loam,Low,25-30°C,Low in nitrogen,Highly drought-resistant; ideal for arid regions
+Peanut,Subtropical,June to October,Sandy Loam,Moderate,25-30°C,Moderate,Requires warm weather and well-drained soil
+Sunflower,Temperate,March to July,Loamy,Moderate,20-25°C,Moderate,Requires good sunlight and well-drained soil
+Tea,Subtropical,April to September,Well-drained,High,18-25°C,High in potassium,Prefers acidic soil and high humidity
+Coffee,Subtropical,June to December,Well-drained,High,18-24°C,High in nitrogen,Prefers high altitude and moderate rainfall
+Banana,Tropical,Year-round,Rich,High,26-30°C,High in nitrogen and potassium,Requires high humidity and warm temperatures
+Mango,Tropical,April to June,Loamy,Moderate,24-30°C,Moderate,Requires hot and dry conditions during the growing period
+Coconut,Tropical,Year-round,Sandy Loam,High,27-32°C,High in potassium and chlorine,Thrives in coastal regions with high humidity
+Pineapple,Tropical,Year-round,Well-drained,High,20-30°C,Moderate,Prefers acidic soil and high humidity
+Potato,Temperate,March to June,Loamy,Moderate,10-20°C,High in potassium,Prefers cool temperatures and well-drained soil
+Onion,Temperate,November to April,Loamy,Low,15-25°C,Moderate,Requires well-drained soil and plenty of sunlight
+Garlic,Temperate,November to April,Loamy,Low,12-20°C,Moderate,Requires well-drained soil; frost-tolerant
+Tomato,Subtropical,April to August,Loamy,High,18-27°C,High in nitrogen,Prefers warm temperatures and well-drained soil
+Chili Pepper,Subtropical,April to August,Loamy,Moderate,20-30°C,High in potassium,Thrives in warm temperatures and well-drained soil
+Cabbage,Temperate,October to March,Loamy,Moderate,15-20°C,Moderate,Prefers cool temperatures and high humidity
+Carrot,Temperate,November to March,Sandy Loam,Low,15-20°C,Moderate,Requires cool temperatures and well-drained soil
+Spinach,Temperate,October to March,Loamy,Moderate,15-20°C,Moderate,Prefers cool temperatures; frost-tolerant
+Cauliflower,Temperate,October to March,Loamy,Moderate,15-20°C,High in nitrogen,Requires cool temperatures and well-drained soil
+Peas,Temperate,October to March,Loamy,Moderate,13-18°C,Moderate,Prefers cool temperatures; frost-tolerant
+Pumpkin,Subtropical,June to September,Loamy,High,20-30°C,High in nitrogen,Requires warm temperatures and plenty of sunlight
+Cucumber,Tropical,April to August,Loamy,High,20-30°C,Moderate,Requires warm temperatures and well-drained soil
+Brinjal,Subtropical,May to August,Loamy,Moderate,20-30°C,High in potassium,Requires warm temperatures; susceptible to frost
+Okra,Subtropical,June to October,Loamy,Moderate,25-30°C,Moderate,Prefers warm weather and well-drained soil
+Bitter Gourd,Tropical,June to September,Loamy,Moderate,25-30°C,Moderate,Prefers warm humid conditions
+Beetroot,Temperate,October to March,Sandy Loam,Moderate,15-25°C,Moderate,Requires cool temperatures; frost-tolerant
+Radish,Temperate,October to March,Sandy Loam,Low,10-15°C,Low,Prefers cool temperatures and well-drained soil
+Turnip,Temperate,October to March,Loamy,Moderate,10-20°C,Moderate,Prefers cool weather; frost-tolerant
+Mustard,Temperate,October to March,Loamy,Low,15-25°C,Moderate,Requires cool weather and well-drained soil
+Fenugreek,Temperate,October to March,Sandy Loam,Low,10-25°C,Low,Prefers cool weather; frost-tolerant
+Coriander,Temperate,October to March,Sandy Loam,Moderate,15-25°C,Low,Prefers cool weather; frost-tolerant
+Turmeric,Tropical,June to September,Loamy,High,20-30°C,High in potassium,Requires warm weather and well-drained soil
+Ginger,Tropical,June to September,Loamy,High,25-30°C,High in nitrogen,Requires warm humid conditions
+Cardamom,Tropical,June to November,Loamy,High,15-25°C,High in potassium,Requires high humidity and shade
+Pepper,Tropical,June to December,Well-drained,High,20-30°C,Moderate,Prefers high humidity and partial shade
+Cassava,Tropical,Year-round,Sandy Loam,Moderate,25-35°C,Moderate,Highly drought-resistant; thrives in warm conditions
+Jute,Tropical,June to September,Alluvial,High,24-35°C,Moderate,Requires high humidity and well-drained soil
+Sesame,Tropical,June to October,Well-drained,Moderate,25-30°C,Low,Prefers hot dry conditions; drought-resistant
+Linseed,Temperate,November to March,Loamy,Low,10-25°C,Low,Prefers cool weather; frost-tolerant
+Groundnut,Tropical,June to October,Sandy Loam,Moderate,25-30°C,High in phosphorus,Requires well-drained soil and warm temperatures
+Pulses,Subtropical,June to September,Loamy,Moderate,20-30°C,Moderate,Prefers warm; dry conditions; nitrogen-fixing
+Papaya,Tropical,Year-round,Well-drained,High,22-26°C,High in potassium,Prefers warm temperatures and well-drained soil
+Guava,Tropical,Year-round,Loamy,Moderate,20-30°C,Moderate,Prefers warm weather; drought-resistant
+Lychee,Subtropical,April to July,Well-drained,High,20-35°C,High in potassium,Requires well-drained soil and high humidity
+Pomegranate,Tropical,Year-round,Loamy,Low,25-30°C,Moderate,Drought-resistant; prefers hot dry conditions
+Grapes,Subtropical,February to May,Loamy,Moderate,15-30°C,High in potassium,Requires well-drained soil and warm temperatures
+Apple,Temperate,October to February,Loamy,Moderate,12-18°C,High in phosphorus,Prefers cool temperatures; requires chilling hours
+Peach,Temperate,November to February,Loamy,Moderate,18-24°C,High in potassium,Prefers cool temperatures; frost-tolerant
+Pear,Temperate,October to February,Loamy,Moderate,12-18°C,Moderate,Prefers cool temperatures; requires chilling hours
+Plum,Temperate,November to March,Loamy,Moderate,12-18°C,Moderate,Prefers cool temperatures; requires chilling hours
+Strawberry,Temperate,November to March,Loamy,High,15-20°C,High in potassium,Prefers cool temperatures and well-drained soil

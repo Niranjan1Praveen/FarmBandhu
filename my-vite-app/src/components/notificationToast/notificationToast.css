@@ -1,0 +1,38 @@
+.notification-toast{
+    position: fixed;
+    bottom: 60px;
+    left: 50px;
+    right: 20px;
+    background: #fff;
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    align-items: flex-start;
+    border-radius: 4px;
+    gap: 9px;
+    transition: .5s ease-in-out;
+    box-shadow: 0 5px 20px hsla(0, 0%, 0%, 0.15);
+    z-index: 9;
+    transform: translateX(calc(-100% - 40px));
+    animation: slideInOut 10s ease-in-out infinite;
+    opacity: 0;
+}
+.notification-toast img{
+    width: 40px;
+    height: 40px;
+}
+@keyframes slideInOut {
+    0%,
+    45%,
+    100%{
+        transform: translateX(calc(-100% -40px));
+        opacity: 0;
+        visibility: visible;
+    }
+    50%, 95%{
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}

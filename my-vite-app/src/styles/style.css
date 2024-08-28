@@ -26,7 +26,7 @@ h1{
     color: #040924;
 }
 .section-m1{
-    margin: 0 100px;
+    margin: 20px 100px;
 }
 input:hover{
     cursor: pointer;
@@ -40,6 +40,17 @@ input:hover{
     color: rgb(3, 99, 209);
     cursor: pointer;
     gap: 3px;
+}
+small.error{
+    font-size: small;
+    color: red;
+}
+small.show-psswd{
+    font-size: small;
+    margin-left: auto;
+    color: rgb(3, 99, 209);
+    cursor: hover;
+    text-decoration: underline;
 }
 /* Header Component */
 #mobile-btn{
@@ -62,7 +73,7 @@ input:hover{
         padding: 20px 50px;
     }
     .section-m1{
-        margin: 0 50px;
+        margin: 20px 50px;
     }
     #navbar{
         flex-direction: column;
@@ -126,17 +137,15 @@ input:hover{
         justify-content: center;
     }
 }
-/* @media(width: 757px){
-    .section-p{
-        padding: 20px 100px;
-    }
-} */
 @media(max-width: 575px){
     .section-p{
         padding: 20px;
     }
     .section-m1{
-        margin: 0px;
+        margin: 20px;
+    }
+    #header .logo-title{
+        display: none;
     }
     .hero-title{
         min-width: 100%;

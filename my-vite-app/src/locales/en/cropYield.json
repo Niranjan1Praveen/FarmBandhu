@@ -7,9 +7,14 @@
         "title": "Yield Prediction",
         "fields": {
           "crop": "Crop:",
+          "location": "Select State",
+          "season": "Select Season",
+          "year": "Select year",
+          "area": "Enter Farm Area",
+          "production": "Enter Production",
           "rainfall": "Average Rainfall (mm/year):",
-          "pesticides": "Pesticides (tonnes):",
-          "temperature": "Average Temperature (°C):"
+          "fertilizer": "Fertilizer Amount (kilograms)",
+          "pesticide": "Pesticide Amount (kilograms)"
         },
         "buttonText": "Predict",
         "result": {

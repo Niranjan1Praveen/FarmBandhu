@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agricultural Analysis</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Jost', sans-serif;
+            padding: 20px;
+        }
+        #map {
+            height: 500px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        #mapInstructions {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 10px;
+        }
+        #climateForm {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        #climateForm label {
+            font-weight: bold;
+        }
+        #climateForm input, #climateForm select {
+            padding: 10px;
+            font-size: 1rem;
+            margin-top: 5px;
+            width: 100%;
+        }
+        #climateForm button {
+            background-color: #0363D1;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            margin-top: 10px;
+            align-self: center;
+        }
+        #details {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        #details table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        #details table, #details th, #details td {
+            border: 1px solid #ddd;
+        }
+        #details th, #details td {
+            padding: 8px;
+            text-align: left;
+        }
+        #details th {
+            background-color: #f2f2f2;
+        }
+        #details th.table-heading {
+            color: #000;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Agricultural Analysis using Climatic Zone in India</h1>
+    
+    <!-- Map Container -->
+    <div id="map"></div>
+    <p id="mapInstructions">Drag the marker on the map to update the location coordinates automatically.</p>
+    
+    <!-- Form -->
+    <form method="post" id="climateForm">
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" name="latitude" readonly>
+        
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="longitude" readonly>
+        
+        <label for="crop_name">Crop Name:</label>
+        <select id="crop_name" name="crop_name" required>
+            <option value="" disabled selected>Select the crop name</option>
+        </select>
+        
+        <button type="submit" id='result'>Get Data</button>
+    </form>
+
+    <!-- Details Section -->
+    {% if zone %}
+    <div id="details">
+        <table>
+            <tr>
+                <th class="table-heading" colspan="2">Climatic Zone Information</th> <!-- Heading Row -->
+            </tr>
+            <tr>
+                <th>Climatic Zone</th>
+                <td>{{ zone }}</td>
+            </tr>
+            <tr>
+                <th>Crop Name</th>
+                <td>{{ crop_name }}</td>
+            </tr>
+            <tr>
+                <th>Growing Months</th>
+                <td>{{ growing_months }}</td>
+            </tr>
+            <tr>
+                <th>Optimal Soil</th>
+                <td>{{ optimal_soil }}</td>
+            </tr>
+            <tr>
+                <th>Irrigation Needs</th>
+                <td>{{ irrigation_needs }}</td>
+            </tr>
+            <tr>
+                <th>Optimal Temperature</th>
+                <td>{{ optimal_temperature }}</td>
+            </tr>
+            <tr>
+                <th>Fertilizer Requirements</th>
+                <td>{{ fertilizer_requirements }}</td>
+            </tr>
+            <tr>
+                <th>Additional Information</th>
+                <td>{{ other_info }}</td>
+            </tr>
+        </table>
+    </div>
+    {% endif %}
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Initialize the map and set its view to India
+            var map = L.map('map').setView([20.5937, 78.9629], 5);
+
+            // Load and display tile layers on the map
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            // Add a draggable marker to the map
+            var marker = L.marker([20.5937, 78.9629], { draggable: true }).addTo(map);
+
+            // Event listener to update form inputs with marker's position when dragged
+            marker.on('moveend', function() {
+                var pos = marker.getLatLng();
+                document.getElementById('latitude').value = pos.lat.toFixed(4);
+                document.getElementById('longitude').value = pos.lng.toFixed(4);
+
+                updateCrops(pos.lat, pos.lng); // Update the crop dropdown based on the new coordinates
+            });
+
+            // Populate crop options based on coordinates
+            function updateCrops(lat, lng) {
+                fetch('/get_crops', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ latitude: lat, longitude: lng })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    var cropSelect = document.getElementById('crop_name');
+                    cropSelect.innerHTML = '<option value="" disabled selected>Select the crop name</option>';
+                    
+                    data.crops.forEach(function(crop) {
+                        var option = document.createElement('option');
+                        option.value = crop;
+                        option.textContent = crop;
+                        cropSelect.appendChild(option);
+                    });
+                });
+            }
+
+            // Initial crop update based on default position
+            updateCrops(20.5937, 78.9629);
+        });
+    </script>
+</body>
+</html>

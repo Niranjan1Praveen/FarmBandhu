@@ -4,7 +4,7 @@
     "news": "News",
     "tools": {
         "title": "Analytical Tools",
-        "links": ["Crop Price Analysis", "Crop Recommendation", "Crop Yield Analysis", "Plant Disease Analysis"]
+        "links": ["Crop Price Analysis", "Crop Recommendation", "Crop Yield Analysis", "Plant Disease Analysis", "Climate Zone and Crop Analysis"]
     },
     "about": "About us",
     "contact": "Contact us",

@@ -1,0 +1,17 @@
+.crop-yield-weight{
+    padding: 20px 0;
+}
+.crop-yield-weight .result{
+    text-align: center;
+}
+.crop-yield-btn{
+    background-color: rgb(3, 99, 209);
+    height: 38px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.2rem;
+    outline: none;
+    border-radius: 4px;
+}

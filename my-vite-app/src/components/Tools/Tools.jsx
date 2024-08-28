@@ -1,14 +1,18 @@
 import React from 'react';
 import './Tools.css'
-import ToolsData from '../../data/ToolsData'
-import { useNavigate } from 'react-router-dom';
+import ToolsDataEn from '../../data/ToolsDataEn'
+import ToolsDataHi from '../../data/ToolsDataHi'
 
-const Tools = () => {
+import { useNavigate } from 'react-router-dom';
+import arrowRight from '../../assets/images/icons/arrow-right.svg'
+const Tools = ({languages}) => {
 
     const navigate = useNavigate();
     const handleNavigate = (path) => {
         navigate(path);
     };
+    console.log(languages);
+    const ToolsData = languages === "hi" ? ToolsDataHi : ToolsDataEn;
     const ToolBoxes = ToolsData.map((data, id)=>{
         return (
                 <div className="tools-box" key={id} onClick={() => handleNavigate(data.path)} style={data.styles}>
@@ -19,12 +23,16 @@ const Tools = () => {
                     )}
                     <h2 className="title">{data.title}</h2>
                     <small className='sub-title'>{data.subTitle}</small>
-                    <span className='output'>{data.output}</span>
+                    {data.output && <span className='output'>{data.output}</span>}
+                    {data.newTab ? <a href={data.pathNewTab} className='new-tab-link' target="_blank" rel="noopener noreferrer">
+                        Open the model in new tab 
+                        <img src={arrowRight} alt="arrow right" className="icon" />
+                        </a> : ""}
                 </div>
         )
     })
     return (
-        <section id='tools-container' className='section-p'>
+        <section id='tools-container' className='section-m1'>
             {ToolBoxes}
         </section>
     );

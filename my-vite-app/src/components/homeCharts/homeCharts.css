@@ -21,13 +21,12 @@
 
 .homeCharts-container .charts-box canvas {
     width: 100% !important;
-    height: 90% !important;
+    height: 100%;
 }
 @media (max-width: 1000px) {
     .homeCharts-container {
         grid-template-columns: 1fr;
     }
-
     .homeCharts-container .charts-box {
         width: 170%;
     }

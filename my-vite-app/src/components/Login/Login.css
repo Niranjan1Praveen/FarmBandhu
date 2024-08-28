@@ -16,6 +16,7 @@
     flex-direction: column;
     padding: 10px 20px 50px 20px;
     width: 100%;
+    gap: 20px;
 }
 #login-form .go-back-to:hover{
     text-decoration: underline;
@@ -30,9 +31,6 @@
     min-height: 40px;
     outline: none;
     padding: 10px 15px;
-}
-#login-form input#psswd{
-    margin-top: 20px;
 }
 #login-form #forget-pswd{
     color: rgb(3, 99, 209);

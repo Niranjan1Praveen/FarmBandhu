@@ -12,7 +12,7 @@ export default function Login({ setIsAuth }) {
     const [password, setPassword] = React.useState('');
     const { t } = useTranslation('login');  
     const [error, setError] = React.useState('');
-    const [success, setSuccess] = React.useState('');
+    const [showPsswd, setShowPsswd] = React.useState(false);
     function signInWithGoogle() {
         signInWithPopup(auth, provider).then((user) => {
             localStorage.setItem("User signed in:", user.email);
@@ -33,7 +33,6 @@ export default function Login({ setIsAuth }) {
                 navigate("/");
             })
             .catch((error) => {
-                const errorCode = error.code;
                 const errorMessage = error.message;
                 console.error("Sign-in error:", errorMessage);
             });
@@ -58,7 +57,6 @@ export default function Login({ setIsAuth }) {
         if (email === userData.email && password === userData.password) {
             localStorage.setItem('isAuth', true);
             setIsAuth(true);
-            setSuccess('Login successful!');
             navigate('/');
         } else {
             setError('Invalid email or password.');
@@ -73,7 +71,6 @@ export default function Login({ setIsAuth }) {
                     {t('loginContainer.links.0')}  
                 </Link>
                 <p>{t('loginContainer.paragraph')}</p>  
-
                 <input
                     type="email"
                     id="email"
@@ -83,14 +80,16 @@ export default function Login({ setIsAuth }) {
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
-                    type="password"
+                    type={!showPsswd ? "password" : "text"}
                     placeholder={t('loginContainer.passwordPlaceholder')}  
                     id="psswd"
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <small className="error">{error}</small>
+                {/* Show Password Button */}
+                {password && <small className="show-psswd" onClick={()=>setShowPsswd(!showPsswd)}>{showPsswd ? "Hide" : "Show"} Password</small>} 
+                {error && <small className="error">{error}</small>}
                 <a href="" id="forget-pswd">{t('loginContainer.forgetPasswordLink')}</a>  
                 <button className="logIn-btn" onClick={handleLogin}>{t('loginContainer.submitButton')}</button>  
 

@@ -8,11 +8,13 @@ import logo from '../../assets/images/logo/logo.png';
 import xmark from '../../assets/images/icons/xmark.svg';
 import bars from '../../assets/images/icons/bars.svg';
 import { useNavigate } from "react-router-dom";
-export default function Header({ isAuth, setIsAuth }) {
+export default function Header({ isAuth, setIsAuth, setIsLangugaes}) {
     const { t, i18n } = useTranslation('header');
     const navigate = useNavigate();
     function handleChangeLanguages(e) {
-        i18n.changeLanguage(e.target.value);
+        localStorage.setItem('Language', e.target.value);
+        i18n.changeLanguage(localStorage.getItem('Language'));
+        setIsLangugaes(e.target.value);
     }
 
     function displayNavbar() {
@@ -49,11 +51,10 @@ export default function Header({ isAuth, setIsAuth }) {
                 <li className="dropdown">
                     <Link>{t('tools.title')}</Link>
                     <ul className="dropdown-content">
-                        <li><Link to="/crop-price-analysis-tool">{t('tools.links.0')}</Link></li>
                         <li><Link to="/crop-recommendation-tool">{t('tools.links.1')}</Link></li>
-                        <li><Link to="/crop-yield-analysis-tool">{t('tools.links.2')}</Link></li>
+                        <li><Link to="/crop-price-analysis-tool">{t('tools.links.0')}</Link></li>
+                        <li><a href="http://127.0.0.1:5000" target="_blank" rel="noopener noreferrer">{t('tools.links.4')}</a></li>
                         <li><Link to="/">{t('tools.links.3')}</Link></li>
-
                     </ul>
                 </li>
                 <li className="active"><Link to="/about">{t('about')}</Link></li>
